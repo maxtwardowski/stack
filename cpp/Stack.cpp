@@ -7,31 +7,48 @@ using namespace std;
 #define SIZE 5
 
 Stack::Stack() {
-  this->top = 0;
-  this->data = (int *) malloc(sizeof(int) * SIZE);
+	this->size = SIZE;
+	this->top = 0;
+	this->data = (int *) malloc(sizeof(int) * SIZE);
+	this->memCheck();
 }
 
 Stack::~Stack() {
-  cout << "Stack has been destroyed.";
+	free(this->data);
+	cout << "Stack has been destroyed.";
 }
 
 void Stack::push(int element) {
-  if (!(this->top % SIZE) && this->top) {
-    this->data = (int *) realloc(this->data, sizeof(int) * SIZE * (1 + (int) this->top / SIZE));
-  }
-  this->data[this->top] = element;
-  this->top++;
+	const int growth_rate = 2;
+	if (this->top >= this->size && this->top) {
+		this->data = (int *) realloc(this->data, sizeof(int) * growth_rate * this->size);
+		this->size *= growth_rate;
+		printf("REALLOCED\n");
+		this->memCheck();
+	}
+	this->data[this->top++] = element;
 }
 
 int Stack::pop() {
-  if (this->top <= 0) {
-    printf("Stack is empty!\n");
-    abort();
-  }
-  this->top--;
-  return this->data[this->top];
+	if (this->top <= 0 || this->data == NULL) {
+		printf("Stack is empty!\n");
+		abort();
+	}
+	this->top--;
+	return this->data[this->top];
 }
 
 bool Stack::isEmpty() {
-  return this->top > 0 ? false : true;
+	if (this->data == NULL) {
+		printf("Memory allocation error\n");
+		abort();
+	}
+	return this->top > 0 ? false : true;
+}
+
+void Stack::memCheck() {
+	if (this->data == NULL) {
+		printf("Memory allocation error");
+		abort();
+	}
 }
