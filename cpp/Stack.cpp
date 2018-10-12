@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdio.h>
 #include "Stack.h"
 
 using namespace std;
@@ -15,7 +14,7 @@ Stack::Stack() {
 
 Stack::~Stack() {
 	free(this->data);
-	cout << "Stack has been destroyed.";
+	cout << "Stack has been destroyed" << endl;
 }
 
 void Stack::push(int element) {

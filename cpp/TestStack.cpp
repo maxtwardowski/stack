@@ -1,15 +1,15 @@
 #include <iostream>
 #include "Stack.h"
 
-#define STACK_ELEMS 16
+#define STACK_ELEMS 75
 
 using namespace std;
 
 int main(int argc, char const *argv[]) {
 	Stack myStack, myStack2;
 
-	printf("isEmpty myStack: %d\n", myStack.isEmpty());
-	printf("isEmpty myStack2: %d\n", myStack2.isEmpty());
+	cout << "isEmpty myStack: " << myStack.isEmpty() << endl;
+	cout << "isEmpty myStack2: " << myStack2.isEmpty() << endl;
 
 	for (int i = 1; i <= STACK_ELEMS; i++) {
 		myStack.push(i);
@@ -19,19 +19,19 @@ int main(int argc, char const *argv[]) {
 		myStack2.push(i * 2);
 	}
 
-	printf("isEmpty myStack: %d\n", myStack.isEmpty());
-	printf("isEmpty myStack2: %d\n", myStack2.isEmpty());
+	cout << "isEmpty myStack: " << myStack.isEmpty() << endl;
+	cout << "isEmpty myStack2: " << myStack2.isEmpty() << endl;
 
 	for (int i = 1; i <= STACK_ELEMS; i++) {
-		printf("myStack: %d\n", myStack.pop());
+		cout << "myStack: " << myStack.pop() << endl;
 	}
 
-	for (int i = 1; i <= STACK_ELEMS; i++) {
-		printf("myStack2: %d\n", myStack2.pop());
+	for (int i = 1; i <= STACK_ELEMS+5; i++) {
+		cout << "myStack2: " << myStack2.pop() << endl;
 	}
 
-	printf("isEmpty myStack: %d\n", myStack.isEmpty());
-	printf("isEmpty myStack2: %d\n", myStack2.isEmpty());
+	cout << "isEmpty myStack: " << myStack.isEmpty() << endl;
+	cout << "isEmpty myStack2: " << myStack2.isEmpty() << endl;
 
 	return 0;
 }
