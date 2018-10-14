@@ -43,7 +43,7 @@ int pop(Stack * s) {
 
 bool isEmpty(Stack * s) {
 	if (s->top < 0) {
-		printf("Stack hasn't been inited");
+		printf("Stack hasn't been inited\n");
 		abort();
 	}
 	return s->top > 0 ? false : true;
@@ -51,7 +51,7 @@ bool isEmpty(Stack * s) {
 
 void memCheck(Stack * s) {
 	if (s->data == NULL) {
-		printf("Memory allocation error");
+		printf("Memory allocation error\n");
 		abort();
 	}
 }

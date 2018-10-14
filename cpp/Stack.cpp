@@ -29,7 +29,7 @@ void Stack::push(int element) {
 }
 
 int Stack::pop() {
-	if (this->top <= 0 || this->data == NULL) {
+	if (this->isEmpty() || this->data == NULL) {
 		printf("Stack is empty!\n");
 		abort();
 	}
@@ -38,10 +38,7 @@ int Stack::pop() {
 }
 
 bool Stack::isEmpty() {
-	if (this->data == NULL) {
-		printf("Memory allocation error\n");
-		abort();
-	}
+	this->memCheck();
 	return this->top > 0 ? false : true;
 }
 

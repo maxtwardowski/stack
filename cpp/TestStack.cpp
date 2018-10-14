@@ -26,7 +26,7 @@ int main(int argc, char const *argv[]) {
 		cout << "myStack: " << myStack.pop() << endl;
 	}
 
-	for (int i = 1; i <= STACK_ELEMS+5; i++) {
+	for (int i = 1; i <= STACK_ELEMS; i++) {
 		cout << "myStack2: " << myStack2.pop() << endl;
 	}
 
